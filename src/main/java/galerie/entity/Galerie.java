@@ -31,4 +31,13 @@ public class Galerie {
     @OneToMany(mappedBy = "organisateur", cascade = CascadeType.PERSIST)
     private List<Exposition> evenements = new LinkedList<>();
 
+    public float caAnnuel(int annee) {
+        float caAnnuel = 0;
+        for (Exposition e : evenements) {
+            if (e.getDebut().getYear() == annee) {
+                caAnnuel += e.caExposition();
+            }
+        }
+        return caAnnuel;
+    }
 }

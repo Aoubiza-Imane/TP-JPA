@@ -1,14 +1,9 @@
 package galerie.entity;
 
-import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.*;
 import lombok.*;
 
-/**
- *
- * @author aoubiza_imane
- */
 @Getter
 @Setter
 @NoArgsConstructor

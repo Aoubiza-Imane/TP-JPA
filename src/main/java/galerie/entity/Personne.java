@@ -5,10 +5,6 @@ import java.util.List;
 import javax.persistence.*;
 import lombok.*;
 
-/**
- *
- * @author aoubiza_imane
- */
 @Getter
 @Setter
 @NoArgsConstructor
@@ -31,5 +27,16 @@ public class Personne {
 
     @OneToMany(mappedBy = "client", cascade = CascadeType.PERSIST)
     private List<Transaction> transactions = new LinkedList<>();
-
+    
+    public float budgetArt(int annee){
+        float budgetArt = 0;
+        for (Transaction t: transactions){
+            if (t.getVenduLe().getYear() == annee){
+                budgetArt = budgetArt + t.getPrixVente();
+            }
+        }
+        return budgetArt; 
+    }  
 }
+
+

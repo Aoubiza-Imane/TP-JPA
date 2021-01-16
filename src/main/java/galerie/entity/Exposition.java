@@ -41,5 +41,13 @@ public class Exposition {
 
     @ManyToMany
     List<Tableau> oeuvres = new LinkedList<>();
+    
+    public float caExposition () {
+        float caExposition = 0;
+        for (Transaction t : ventes) {
+            caExposition += t.getPrixVente();
+        }
+        return caExposition;
+    }
 
 }
